@@ -2,7 +2,7 @@ from monitoring.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 
 def check_alarm(value):
-    if value >= 42:
+    if value >= 100:
         send_email()
     return()
 
