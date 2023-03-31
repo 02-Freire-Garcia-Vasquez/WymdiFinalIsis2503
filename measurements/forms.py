@@ -10,7 +10,6 @@ class MeasurementForm(forms.ModelForm):
             'lugarConsulta',
             'tipoConsulta',
             'motivoConsulta',
-            #'enfermedad',
         ]
 
         labels = {
@@ -19,5 +18,4 @@ class MeasurementForm(forms.ModelForm):
             'lugarConsulta' : 'LugarConsulta',
             'tipoConsulta' : 'TipoConsulta',
             'motivoConsulta' : 'MotivoConsulta',
-            #'enfermedad' : 'Enfermedad',
         }
