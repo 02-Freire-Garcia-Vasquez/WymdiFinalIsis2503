@@ -8,7 +8,7 @@ rabbit_host = '10.128.0.11'
 rabbit_user = 'monitoring_user'
 rabbit_password = 'isis2503'
 exchange = 'monitoring_measurements'
-topics = ['ML.505.#']
+topics = ['Samuel Josue Freire Tarazona','Felipe Garcia','German Moreno','Nicolas Gonsales']
 
 
 path.append('monitoring/settings.py')
@@ -38,11 +38,9 @@ print('> Waiting measurements. To exit press CTRL+C')
 def callback(ch, method, properties, body):
     payload = json.loads(body.decode('utf8').replace("'", '"'))
     topic = method.routing_key.split('.')
-    variable = get_variable(topic[2])
+    variable = get_variable(topic[0])
     create_measurement_object(
-        variable, payload['value'], payload['unit'], topic[0] + topic[1])
-    if variable.name == 'Temperature':
-        check_alarm(payload['value'])
+        variable, payload['fechaConsulta'], payload['lugarConsulta'], payload['tipoConsulta'], payload['motivoConsulta'], payload['enfermedad'])
     print("Measurement :%r" % (str(payload)))
 
 

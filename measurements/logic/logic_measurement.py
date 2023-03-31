@@ -9,12 +9,13 @@ def create_measurement(form):
     measurement.save()
     return ()
 
-def create_measurement_object(variable_id, fecha, lugar, tipo,motivo):
+def create_measurement_object(variable_id, fecha, lugar, tipo,motivo,enfer):
     measurement = Measurement()
     measurement.paciente = variable_id
     measurement.fechaConsulta = fecha
     measurement.lugarConsulta = lugar
     measurement.tipoConsulta = tipo
     measurement.motivoConsulta = motivo
+    measurement.enfermedad = enfer
     measurement.save()
     return ()
