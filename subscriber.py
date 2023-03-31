@@ -8,7 +8,7 @@ rabbit_host = '10.128.0.11'
 rabbit_user = 'monitoring_user'
 rabbit_password = 'isis2503'
 exchange = 'monitoring_measurements'
-topics = ['Samuel Josue Freire Tarazona','Felipe Garcia','German Moreno','Nicolas Gonsales']
+topics = ['Samuel Freire','German Moreno','Felipe Garcia']
 
 
 path.append('monitoring/settings.py')
