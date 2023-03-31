@@ -4,7 +4,7 @@
 <div class="content">
     <div class="">
         <div class="page-header-title">
-            <h4 class="page-title">Last Ten Measures</h4>
+            <h4 class="page-title">Ultimas 10 Historias Clinicas</h4>
             <!--- 
             <div style="text-align:right;">
                 <button type="button" class="btn btn-success waves-effect waves-light"
@@ -37,11 +37,11 @@
 
                         {% for measurement in measurement_list %}
                         <tr>
-                            <td>{{ measurement.variable.name }}</td>
-                            <td>{{ measurement.value }}</td>
-                            <td>{{ measurement.unit }}</td>
-                            <td>{{ measurement.place }}</td>
-                            <td>{{ measurement.dateTime }}</td>
+                            <td>{{ measurement.paciente.name }}</td>
+                            <td>{{ measurement.fechaConsulta }}</td>
+                            <td>{{ measurement.lugarConsulta }}</td>
+                            <td>{{ measurement.tipoConsulta }}</td>
+                            <td>{{ measurement.motivoConsulta }}</td>
                         </tr>
                         {% endfor %}
 

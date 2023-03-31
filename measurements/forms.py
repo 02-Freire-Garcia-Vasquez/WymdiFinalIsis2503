@@ -5,17 +5,19 @@ class MeasurementForm(forms.ModelForm):
     class Meta:
         model = Measurement
         fields = [
-            'variable',
-            'value',
-            'unit',
-            'place',
-            #'dateTime',
+            'paciente',
+            'fechaConsulta',
+            'lugarConsulta',
+            'tipoConsulta',
+            'motivoConsulta',
+            'enfermedad',
         ]
 
         labels = {
-            'variable' : 'Variable',
-            'value' : 'Value',
-            'unit' : 'Unit',
-            'place' : 'Place',
-            #'dateTime' : 'Date Time',
+            'paciente' : 'Paciente',
+            'fechaConsulta' : 'FechaConsulta',
+            'lugarConsulta' : 'LugarConsulta',
+            'tipoConsulta' : 'TipoConsulta',
+            'motivoConsulta' : 'MotivoConsulta',
+            'enfermedad' : 'Enfermedad',
         }
