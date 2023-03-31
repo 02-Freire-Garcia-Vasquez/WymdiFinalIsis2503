@@ -32,7 +32,7 @@ for topic in topics:
     channel.queue_bind(
         exchange=exchange, queue=queue_name, routing_key=topic)
 
-print('> Waiting measurements. To exit press CTRL+C')
+print('> Waiting historias. To exit press CTRL+C')
 
 
 def callback(ch, method, properties, body):
