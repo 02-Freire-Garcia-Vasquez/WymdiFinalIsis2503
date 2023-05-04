@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'measurements',
     'variables',
-    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -134,13 +133,3 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
-
-LOGIN_URL = "/login/auth0"
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "https://isis2503-samuelfreire03.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F35.238.126.217:8080"
-SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
-SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-samuelfreire03.us.auth0.com'
-SOCIAL_AUTH_AUTH0_KEY = 'BHl64258q34pTED3m95Cn2vrTekLiq9m'
-SOCIAL_AUTH_AUTH0_SECRET = '1JORkzkVIpH7LNaVrcnz0gYXucYZ9RK9Bc7LZliHbftKsZNJMU9o9_7nMVU2KPL6'
-SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile','email','role', ]
-AUTHENTICATION_BACKENDS = { 'monitoring.auth0backend.Auth0', 'django.contrib.auth.backends.ModelBackend', }
