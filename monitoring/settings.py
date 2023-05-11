@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'measurements',
     'variables',
+    'social_django',
+    'adendas',
 ]
 
 MIDDLEWARE = [
@@ -76,15 +78,15 @@ WSGI_APPLICATION = 'monitoring.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'monitoring_db',
-        'USER': 'monitoring_user',
-        'PASSWORD': 'isis2503',
-        'HOST': '10.20.0.3',
-        'PORT': '',
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': 'monitoring_db',
+         'USER': 'monitoring_user',
+         'PASSWORD': 'isis2503',
+         'HOST': '10.20.0.3',
+         'PORT': '5432',
+     }
+ }
 
 
 # Password validation
@@ -134,9 +136,12 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.office365.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'arquisoft2019@gmail.com'
-EMAIL_HOST_PASSWORD = 'xxxxxxxxx'
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "https://isis2503-samuelfreire03.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F35.192.117.157:8080"
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-samuelfreire03.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'BHl64258q34pTED3m95Cn2vrTekLiq9m'
+SOCIAL_AUTH_AUTH0_SECRET = '1JORkzkVIpH7LNaVrcnz0gYXucYZ9RK9Bc7LZliHbftKsZNJMU9o9_7nMVU2KPL6'
+SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile','email','role', ]
+AUTHENTICATION_BACKENDS = { 'monitoring.auth0backend.Auth0', 'django.contrib.auth.backends.ModelBackend', }
