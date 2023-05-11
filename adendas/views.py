@@ -7,7 +7,7 @@ from .logic.logic_adenda import create_adenda, get_adendas
 from django.contrib.auth.decorators import login_required
 from monitoring.auth0backend import getRole
 
-
+@login_required
 def adenda_list(request):
     role = getRole(request)
     if role == "Enfermero" or role == "Administrador":
@@ -19,7 +19,7 @@ def adenda_list(request):
     else:
         return HttpResponse("Unauthorized User")
 
-
+@login_required
 def adenda_create(request):
     role = getRole(request)
     if role == "Enfermero":
