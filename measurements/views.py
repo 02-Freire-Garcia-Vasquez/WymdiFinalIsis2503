@@ -3,8 +3,10 @@ from .forms import MeasurementForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 from .logic.logic_measurement import create_measurement, get_measurements
 
+@login_required
 def measurement_list(request):
     measurements = get_measurements()
     context = {
@@ -12,6 +14,7 @@ def measurement_list(request):
     }
     return render(request, 'Measurement/measurements.html', context)
 
+@login_required
 def measurement_create(request):
     if request.method == 'POST':
         form = MeasurementForm(request.POST)

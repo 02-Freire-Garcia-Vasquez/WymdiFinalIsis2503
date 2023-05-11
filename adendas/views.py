@@ -19,6 +19,7 @@ def adenda_list(request):
     else:
         return HttpResponse("Unauthorized User")
 
+@login_required
 def adenda_create(request):
     role = getRole(request)
     if role == "Enfermero":
