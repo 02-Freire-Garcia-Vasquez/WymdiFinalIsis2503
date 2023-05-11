@@ -14,13 +14,13 @@
 
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="/">
-                <img src="https://previews.123rf.com/images/stockgiu/stockgiu1706/stockgiu170605632/80762065-cruzar-s%C3%ADmbolo-de-la-cl%C3%ADnica-a-la-gente-de-la-salud.jpg" width="45" height="45" alt="">
+                <img src="/static/media/logo.png" width="45" height="45" alt="">
                 </a>
             </nav>
 
           <nav class="navbar navbar-light bg-light">
               <a class="navbar-brand" href="/">
-                  Wydmi
+                  Monitoring App
               </a>
           </nav>
 
@@ -31,12 +31,26 @@
                     <a class="nav-link" href="/variables/">Pacientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/measurements/">Historias Clinicas</a>
+                    <a class="nav-link" href="/measurements/">Historia Clinica</a>
+                </li>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/adendas/">Adendas</a>
                 </li>
             </ul>
+
+              <form class="form-inline my-2 my-lg-0">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="font-size:120%" class="nav-link">{{ user.username }}</a></li>
+                    <li><a style="font-size:120%; padding-right:20px" class="nav-link" href="/logout">Log out</a></li>
+                </ul>
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="font-size:120%; padding-right:20px" class="navbar-link" href="/login/auth0">Login</a></li>
+                </ul>
+                {% endif %}
+              </form>
 
           </div>
         </nav>
@@ -58,7 +72,7 @@
                 <div style="float: left; width: 400px;" >ISIS-2503 Arquitectura y Diseño de Software</div>
                 <div style="float: right; width: 220px;" >Universidad de los Andes</div>
                 <br>
-                <div style="float: left; width: 400px;" ><i>Grupo 4</i></div>
+                <div style="float: left; width: 400px;" ><i>Iván David Alfonso Díaz</i></div>
             </div>
             <br>
 
